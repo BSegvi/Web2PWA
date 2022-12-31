@@ -14,6 +14,9 @@ app.get("/SW.js", (req, res) => {
 app.get("/public/pwa.webmanifest", (req, res) => {
   res.sendFile(path.resolve(__dirname, "pwa.webmanifest"));
 });
+app.post("/data", (req, res) => {
+  console.log(JSON.stringify(req.body));
+});
 
 app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 app.listen(port);

@@ -1,4 +1,6 @@
 const staticCacheName = "site-static";
+import { del, entries } from "https://cdn.jsdelivr.net/npm/idb-keyval@6/+esm";
+
 const assets = [
   "/",
   "/index.html",
@@ -48,5 +50,14 @@ self.addEventListener("sync", (event) => {
   }
 });
 function pushNotify() {
+  let obj = { name: "Bruno" };
+  fetch("http://localhost:3000/data", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(obj),
+  })
+    .then(() => Promise.resolve())
+    .catch(() => Promise.reject());
+
   self.registration.showNotification(`Background sync succesful`);
 }
