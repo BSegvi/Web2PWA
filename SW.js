@@ -1,9 +1,13 @@
 const staticCacheName = "site-static";
 import { del, entries } from "https://cdn.jsdelivr.net/npm/idb-keyval@6/+esm";
+import { get, set } from "https://cdn.jsdelivr.net/npm/idb-keyval@6/+esm";
 
 const assets = [
   "/",
+  "/contact",
+  "/css/style.css",
   "/index.html",
+  "/contact.html",
   "/manifest.json",
   "/favicon.ico",
   "/images/guitar-icon.jpg",
@@ -14,7 +18,10 @@ const assets = [
   "/images/guitar-icon(5).jpg",
   "/images/guitar-icon(7).jpg",
   "/images/guitar-icon(8).jpg",
-  "/images/SweetAlabamaTab.png",
+  "/images/sweetHomeAlabama.png",
+  "/images/guitar.jpg",
+  "/images/SweetChildTab.jpg",
+  "/images/standbyme.JPG",
 ];
 
 self.addEventListener("install", (event) => {
@@ -43,21 +50,28 @@ self.addEventListener("fetch", (event) => {
 });
 
 self.addEventListener("sync", (event) => {
-  console.log("sync event", event);
   if (event.tag === "sync") {
     //call method
     event.waitUntil(pushNotify());
   }
 });
+
+self.addEventListener("sync", (event) => {
+  if (event.tag === "sync-two") {
+    event.waitUntil(pushNotifyTwo());
+  }
+});
 function pushNotify() {
-  let obj = { name: "Bruno" };
-  fetch("http://localhost:3000/data", {
+  /*fetch("http://localhost:3000/contact", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(obj),
+    body: JSON.stringify(formData),
   })
     .then(() => Promise.resolve())
-    .catch(() => Promise.reject());
+    .catch(() => Promise.reject());*/
 
-  self.registration.showNotification(`Background sync succesful`);
+  self.registration.showNotification(`Message sent!`);
+}
+function pushNotifyTwo() {
+  self.registration.showNotification(`You are online`);
 }
