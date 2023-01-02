@@ -8,11 +8,11 @@ const assets = [
   "./contact.html",
   "./manifest.json",
   "./favicon.ico",
+  "./app.js",
   "./images/guitar-icon.jpg",
   "./images/guitar-icon(1).jpg",
   "./images/guitar-icon(2).jpg",
   "./images/guitar-icon(3).jpg",
-
   "./images/guitar-icon(4).jpg",
   "./images/guitar-icon(5).jpg",
   "./images/guitar-icon(7).jpg",
