@@ -2,11 +2,17 @@
 <html lang="en">
   <head>
     <link rel="manifest" href="/manifest.json" />
-
+    <link
+      href="https://fonts.googleapis.com/css2?family=Peralta&family=Poppins&display=swap"
+      rel="stylesheet"
+    />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="theme-color" content="#4285f4" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Peralta&family=Poppins&display=swap");
+    </style>
     <title>Guitar recorder</title>
   </head>
   <body>
@@ -23,10 +29,6 @@
       </div>
     </div>
     <p id="background-sync"></p>
-    <!--<div id="notification">
-      <h2 class="same">Learn a song and record yourself playing!</h2>
-      <a onclick="registerNotification()" class="same">Notify me</a>
-    </div>-->
 
     <div class="card">
       <img src="/images/sweetChildTab.jpg" alt="Avatar" style="width: 100%" />
@@ -43,14 +45,14 @@
       />
       <div class="container">
         <h4><b>Sweet Home Alabama</b></h4>
-        <p>by Lynrd Skynrd</p>
+        <p>by Lynyrd Skynyrd</p>
       </div>
     </div>
     <div class="card">
       <img src="/images/standbyme.JPG" alt="Avatar2" style="width: 100%" />
       <div class="container">
         <h4><b>Stand by Me</b></h4>
-        <p>by Lynrd Skynrd</p>
+        <p>by Ben E. King</p>
       </div>
     </div>
 
@@ -58,7 +60,6 @@
     <p>
       <button onclick="getStream()">Record yourself playing a song!</button>
     </p>
-    <p><button onclick="pause()">Pause</button></p>
     <p><button onclick="download()">Download!</button></p>
     <script>
       function registerNotification(e) {
@@ -189,6 +190,9 @@
       body {
         background-image: url(./images/guitar.jpg);
         background-size: 100% auto;
+        font-family: "Peralta", cursive;
+
+        font-family: "Poppins", sans-serif;
       }
       .header {
         overflow: hidden;
@@ -217,22 +221,10 @@
         font-weight: bold;
       }
 
-      /* Float the link section to the right */
       .header-right {
         float: right;
       }
 
-      /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other 
-      @media screen and (max-width: 500px) {
-        .header a {
-          float: none;
-          display: block;
-          text-align: left;
-        }
-        .header-right {
-          float: none;
-        }
-      }*/
       @supports (position: sticky) {
         .header {
           overflow: hidden;
@@ -259,13 +251,11 @@
         margin: auto;
       }
 
-      /* On mouse-over, add a deeper shadow */
       .card:hover {
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
         transform: scale(2);
       }
 
-      /* Add some padding inside the card container */
       .container {
         text-align: center;
         padding: 2px 16px;
