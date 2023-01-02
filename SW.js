@@ -33,7 +33,6 @@ self.addEventListener("install", (event) => {
           .catch((_) => console.error(`can't load ${file} to cache`))
       )
     );
-    console.log(stack);
     return Promise.all(stack);
   };
 

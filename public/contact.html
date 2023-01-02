@@ -55,14 +55,12 @@
 
       contactForm.addEventListener("submit", (e) => {
         e.preventDefault();
-        console.log("submit clicked");
         let formData = {
           name: name.value,
           email: email.value,
           subject: subject.value,
           message: message.value,
         };
-        console.log(formData);
         let xhr = new XMLHttpRequest();
         xhr.open("POST", "/contact");
         xhr.setRequestHeader("content-type", "application/json");
@@ -147,8 +145,6 @@
         })
           .then(() => Promise.resolve())
           .catch(() => Promise.reject());
-
-        console.log("Sync pozvana");
       }
     </script>
     <script>
