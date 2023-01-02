@@ -24,14 +24,21 @@ const assets = [
 
 self.addEventListener("install", (event) => {
   console.log("service worker has been installed");
-  event.waitUntil(
-    caches.open(staticCacheName).then((cache) => {
-      console.log("cashing shell assets");
-      return cache.addAll(assets);
-    })
-  );
-});
+  const filesUpdate = (cache) => {
+    const stack = [];
+    assets.forEach((file) =>
+      stack.push(
+        cache
+          .add(file)
+          .catch((_) => console.error(`can't load ${file} to cache`))
+      )
+    );
+    console.log(stack);
+    return Promise.all(stack);
+  };
 
+  event.waitUntil(caches.open(staticCacheName).then(filesUpdate));
+});
 //activate event
 self.addEventListener("activate", (event) => {
   //console.log("service worker has been activated");
