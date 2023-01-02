@@ -18,7 +18,7 @@ const assets = [
   "/images/guitar-icon(8).jpg",
   "/images/sweetHomeAlabama.png",
   "/images/guitar.jpg",
-  "/images/SweetChildTab.jpg",
+  "/images/sweetChildTab.jpg",
   "/images/standbyme.JPG",
 ];
 
